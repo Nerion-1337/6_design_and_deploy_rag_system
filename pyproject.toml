@@ -10,6 +10,7 @@ dependencies = [
     "langchain-community>=0.4.2",
     "mistralai>=2.9.4",
     "pandas>=3.0.5",
+    "pyarrow>=25.0.1",
     "python-dotenv>=1.2.3",
     "requests>=2.34.2",
 ]
