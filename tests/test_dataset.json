@@ -1,0 +1,14 @@
+[
+  {
+    "question": "Quels sont les événements musicaux prévus à Bordeaux ?",
+    "ground_truth": "Le Quatuor Prométhée donne un concert de musique classique à Bordeaux dans le cadre du Festival Vibre !."
+  },
+  {
+    "question": "Y a-t-il une exposition de peinture contemporaine ?",
+    "ground_truth": "Aucune exposition de peinture contemporaine n'est disponible dans le catalogue actuel."
+  },
+  {
+    "question": "Quel événement a lieu pour le Festival Vibre ?",
+    "ground_truth": "Le Festival Vibre accueille le Quatuor Prométhée pour un concert de musique classique à Bordeaux."
+  }
+]
