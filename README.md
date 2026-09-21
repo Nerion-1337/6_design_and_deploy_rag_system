@@ -32,23 +32,24 @@ Ce projet implémente un système RAG (*Retrieval-Augmented Generation*) complet
 ```text
 6_design_and_deploy_rag_system/
 ├── data/
-│   ├── raw/                   # Données brutes au format Parquet
-│   └── faiss_index/           # Index vectoriel Faiss persisté (.faiss, .pkl)
+│   ├── raw/                                 # Données brutes au format Parquet
+│   └── faiss_index/                         # Index vectoriel Faiss persisté (.faiss, .pkl)
+│   └── Puls-Events_Rapport_Technique        # Support de présentation projet
 ├── src/
-│   ├── api/                   # Point d'entrée FastAPI (main.py)
-│   ├── data/                  # Script d'ingestion Open Agenda (fetch_openagenda.py)
-│   ├── indexing/               # Script d'indexation vectorielle (build_index.py)
-│   └── rag/                   # Chaîne LangChain LCEL (chain.py)
+│   ├── api/                                 # Point d'entrée FastAPI (main.py)
+│   ├── data/                                # Script d'ingestion Open Agenda (fetch_openagenda.py)
+│   ├── indexing/                            # Script d'indexation vectorielle (build_index.py)
+│   └── rag/                                 # Chaîne LangChain LCEL (chain.py)
 ├── tests/
-│   ├── api_test.py             # Tests fonctionnels des endpoints HTTP
-│   ├── evaluate_rag.py         # Script d'évaluation automatisée
-│   ├── test_dataset.json       # Jeu de test annoté (Vérités terrain)
-│   └── evaluation_report.json  # Métriques de performance RAG
-├── Dockerfile                  # Configuration de l'image Docker applicative
-├── docker-compose.yml           # Déploiement multi-services (Stack openclassrooms)
-├── pyproject.toml               # Dépendances du projet
-├── uv.lock                      # Verrouillage déterministe des versions
-└── README.md                    # Documentation technique
+│   ├── api_test.py                          # Tests fonctionnels des endpoints HTTP
+│   ├── evaluate_rag.py                      # Script d'évaluation automatisée
+│   ├── test_dataset.json                    # Jeu de test annoté (Vérités terrain)
+│   └── evaluation_report.json               # Métriques de performance RAG
+├── Dockerfile                               # Configuration de l'image Docker applicative
+├── docker-compose.yml                       # Déploiement multi-services (Stack openclassrooms)
+├── pyproject.toml                           # Dépendances du projet
+├── uv.lock                                  # Verrouillage déterministe des versions
+└── README.md                                # Documentation technique
 ```
 
 ---
@@ -73,7 +74,6 @@ uv sync --frozen
 Créer un fichier `.env` à la racine du projet :
 
 ```env
-OPENAGENDA_API_KEY=""
 MISTRAL_API_KEY="votre_cle_api_mistral"
 ```
 
