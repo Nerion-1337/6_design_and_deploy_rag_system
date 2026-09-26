@@ -222,3 +222,9 @@ docker compose down
 - **Historique de conversation** : ajouter une mémoire de session (ex. Redis) pour un contexte multi-tours.
 - **Schéma d'architecture UML** : ajouter un diagramme détaillant les composants et leurs interactions dans le rapport technique.
 - **Enrichissement des données** : géocodage de secours pour les événements sans coordonnées, détection de doublons approximatifs (titres similaires).
+
+---
+
+## 10. Vidéo
+
+-  [`video`](https://youtu.be/tp2cCIDNM_U)
