@@ -2,14 +2,20 @@ name: openclassrooms
 
 services:
   puls_events_rag:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     container_name: puls_events_rag_api
-    restart: unless-stopped
     ports:
-      - "8000:8000"
+      - "8002:8002"
     env_file:
       - .env
     volumes:
       - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8002/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+networks:
+  default:
+    name: openclassrooms

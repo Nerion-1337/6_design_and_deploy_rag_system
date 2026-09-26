@@ -1,11 +1,21 @@
-from pathlib import Path
-from dotenv import load_dotenv
+"""
+Chaîne RAG (Retrieval-Augmented Generation) pour Puls-Events.
 
+Orchestre, via LangChain (LCEL) :
+1. La recherche des documents pertinents dans l'index Faiss.
+2. La génération d'une réponse en langage naturel par un LLM gratuit
+   (NVIDIA NIM ou Hugging Face local), à partir du contexte récupéré.
+"""
+from pathlib import Path
+
+from dotenv import load_dotenv
 from langchain_community.vectorstores import FAISS
-from langchain_mistralai import MistralAIEmbeddings, ChatMistralAI
+from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
-from langchain_core.output_parsers import StrOutputParser
+
+from src.rag.embeddings_provider import get_embeddings
+from src.rag.llm_provider import get_llm
 
 load_dotenv()
 
@@ -23,26 +33,34 @@ Question :
 
 Réponse :"""
 
-def format_docs(docs):
+
+def format_docs(docs) -> str:
+    """Concatène le contenu des documents récupérés en un seul bloc de contexte."""
+    if not docs:
+        return "Aucun événement trouvé dans le catalogue."
     return "\n\n---\n\n".join(doc.page_content for doc in docs)
 
-def get_rag_chain():
-    if not INDEX_DIR.exists():
-        raise FileNotFoundError(f"Index introuvable : {INDEX_DIR}. Exécutez d'abord src/indexing/build_index.py")
 
-    # Chargement de l'index et des embeddings
-    embeddings = MistralAIEmbeddings(model="mistral-embed")
-    vector_store = FAISS.load_local(
-        str(INDEX_DIR),
-        embeddings,
-        allow_dangerous_deserialization=True
+def load_vector_store(index_dir: Path = INDEX_DIR) -> FAISS:
+    """Charge l'index Faiss persisté sur disque."""
+    if not index_dir.exists():
+        raise FileNotFoundError(
+            f"Index introuvable : {index_dir}. "
+            "Exécutez d'abord src/indexing/build_index.py"
+        )
+    embeddings = get_embeddings()
+    return FAISS.load_local(
+        str(index_dir), embeddings, allow_dangerous_deserialization=True
     )
-    
-    retriever = vector_store.as_retriever(search_kwargs={"k": 3})
-    llm = ChatMistralAI(model="mistral-small-latest", temperature=0.2)
+
+
+def get_rag_chain(index_dir: Path = INDEX_DIR, k: int = 3, temperature: float = 0.2):
+    """Construit la chaîne RAG complète (retriever + prompt + LLM + parseur)."""
+    vector_store = load_vector_store(index_dir)
+    retriever = vector_store.as_retriever(search_kwargs={"k": k})
+    llm = get_llm(temperature=temperature)
     prompt = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
 
-    # Chaîne LCEL (LangChain Expression Language)
     chain = (
         {"context": retriever | format_docs, "question": RunnablePassthrough()}
         | prompt
@@ -50,6 +68,7 @@ def get_rag_chain():
         | StrOutputParser()
     )
     return chain
+
 
 if __name__ == "__main__":
     rag_chain = get_rag_chain()

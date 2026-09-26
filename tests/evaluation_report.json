@@ -1,29 +1,30 @@
 {
-  "average_similarity": 0.8851333333333334,
+  "average_similarity": 0.6906,
+  "ragas_metrics": null,
   "details": [
     {
       "id": 1,
       "question": "Quels sont les événements musicaux prévus à Bordeaux ?",
       "ground_truth": "Le Quatuor Prométhée donne un concert de musique classique à Bordeaux dans le cadre du Festival Vibre !.",
-      "generated_answer": "Voici les événements musicaux prévus à Bordeaux avec le **Quatuor Prométhée** dans le cadre du **Festival Vibre !** :\n\n🎻 **Quatuor Prométhée – Festival Vibre !**\n📍 **Ville** : Bordeaux\n📅 **Dates** : À confirmer (consultez le programme officiel du festival pour les horaires précis).\n🎶 **Description** : Une performance musicale exceptionnelle par ce quatuor renommé, dans le cadre d’un festival dédié aux vibrations artistiques.\n\nPour des informations complémentaires (programme détaillé, billets, etc.), je vous invite à consulter directement le site du **Festival Vibre !** ou à contacter l’organisateur.\n\nSi vous cherchez d’autres événements musicaux à Bordeaux, je peux élargir la recherche ! 😊",
-      "similarity_score": 0.9303,
-      "status": "Correct"
+      "generated_answer": "Bonjour ! \n\nJe suis ravi de vous aider à découvrir les événements culturels à Bordeaux. Selon nos informations, il semble que vous soyez intéressé par les événements musicaux prévus à Bordeaux. \n\nJe peux vous recommander trois événements qui correspondent à vos critères :\n\n1. **Les classiques de Mériadeck : Le geste et la voix** : Organisé en partenariat avec le conservatoire de Bordeaux, cet événement présente une programmation musicale qui met en valeur la voix et le geste.\n2. **Les classiques de Mériadeck : Les cors** : Ce deuxième événement, également organisé en partenariat avec le conservatoire de Bordeaux, se concentre sur la musique des cors.\n3. **Les classiques de Mériadeck : Métamorphoses d'Ovide** : Bien que le titre ne soit pas spécifiquement musical, il est possible que cet événement inclue des éléments musicaux, étant donné le partenariat avec le conservatoire de Bordeaux.\n\nCes trois événements sont tous prévus à Bordeaux et sont organisés en partenariat avec le conservatoire de Bordeaux. J'espère que cela vous aidera à trouver l'événement qui vous intéresse le plus !",
+      "similarity_score": 0.638,
+      "status": "Partiel"
     },
     {
       "id": 2,
       "question": "Y a-t-il une exposition de peinture contemporaine ?",
       "ground_truth": "Aucune exposition de peinture contemporaine n'est disponible dans le catalogue actuel.",
-      "generated_answer": "D'après le catalogue actuel de Puls-Events, je ne trouve **pas d'exposition de peinture contemporaine** correspondant à votre demande.\n\nVoici les expositions disponibles à Bordeaux pour référence :\n- **\"Céramiques, corps sensibles\"** (exposition de céramiques)\n- **\"Un siècle d'architecture en France\"** (exposition photographique d'architecture)\n- **\"Crotte ! Que fait le microbiote ?\"** (exposition scientifique à Cap Sciences)\n\nSi vous souhaitez explorer d'autres types d'événements culturels ou des expositions dans d'autres villes, n'hésitez pas à me le préciser ! 😊",
-      "similarity_score": 0.8854,
-      "status": "Correct"
+      "generated_answer": "Bonjour ! Je suis ravi de vous aider à trouver une exposition de peinture contemporaine à Bordeaux.\n\nMalheureusement, je n'ai trouvé aucune exposition de peinture contemporaine dans le catalogue actuel des événements à Bordeaux qui correspond à votre demande. Les événements que j'ai trouvés sont :\n\n- \"Un siècle d'architecture en France\" : une exposition photographique d'édifices labellisés \"Architecture Remarquable Contemporaine\"\n- \"L'eau: une ressource vitale\" : une exposition photo\n- \"Atelier dessin et peinture\" : un atelier qui explore et approfondit les techniques de dessin et de peinture, mais il n'est pas clair si c'est une exposition de peinture contemporaine.\n\nJe vous recommande de vérifier les actualités et les événements à venir à Bordeaux pour trouver une exposition de peinture contemporaine qui pourrait vous intéresser. Je suis à votre disposition si vous avez d'autres questions !",
+      "similarity_score": 0.6916,
+      "status": "Partiel"
     },
     {
       "id": 3,
       "question": "Quel événement a lieu pour le Festival Vibre ?",
       "ground_truth": "Le Festival Vibre accueille le Quatuor Prométhée pour un concert de musique classique à Bordeaux.",
-      "generated_answer": "D'après le contexte fourni, voici les informations disponibles concernant le **Festival Vibre !** :\n\n🎭 **Événement identifié** :\n- **Titre** : Masterclass\n- **Description** : Festival Vibre !\n- **Ville** : Bordeaux\n\n🔍 **Analyse** :\nLe catalogue actuel ne mentionne qu'une seule occurrence pour le **Festival Vibre !**, sous la forme d'une **Masterclass** à Bordeaux. Aucune autre activité ou événement lié à ce festival n'est référencé dans les données disponibles.\n\n💡 **Conseil** :\nSi vous souhaitez explorer d'autres activités ou détails sur cette Masterclass (horaires, intervenants, lieu précis, etc.), je vous recommande de consulter directement la page dédiée au **Festival Vibre !** sur la plateforme **Puls-Events** ou de contacter l'organisateur pour plus d'informations.\n\nN'hésitez pas si vous avez d'autres questions ! 😊",
-      "similarity_score": 0.8397,
-      "status": "Correct"
+      "generated_answer": "Je suis ravi de vous aider !\n\nD'après les informations fournies, il semble que le Quatuor Prométhée soit l'événement qui a lieu pour le Festival Vibre à Bordeaux. Il y a trois mentions identiques du même événement, ce qui suggère qu'il s'agit bien de l'attraction principale du Festival Vibre à Bordeaux.",
+      "similarity_score": 0.7422,
+      "status": "Partiel"
     }
   ]
 }

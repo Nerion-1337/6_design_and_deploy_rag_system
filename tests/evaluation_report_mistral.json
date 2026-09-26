@@ -1,0 +1,29 @@
+{
+  "average_similarity": 0.8851333333333334,
+  "details": [
+    {
+      "id": 1,
+      "question": "Quels sont les événements musicaux prévus à Bordeaux ?",
+      "ground_truth": "Le Quatuor Prométhée donne un concert de musique classique à Bordeaux dans le cadre du Festival Vibre !.",
+      "generated_answer": "Voici les événements musicaux prévus à Bordeaux avec le **Quatuor Prométhée** dans le cadre du **Festival Vibre !** :\n\n🎻 **Quatuor Prométhée – Festival Vibre !**\n📍 **Ville** : Bordeaux\n📅 **Dates** : À confirmer (consultez le programme officiel du festival pour les horaires précis).\n🎶 **Description** : Une performance musicale exceptionnelle par ce quatuor renommé, dans le cadre d’un festival dédié aux vibrations artistiques.\n\nPour des informations complémentaires (programme détaillé, billets, etc.), je vous invite à consulter directement le site du **Festival Vibre !** ou à contacter l’organisateur.\n\nSi vous cherchez d’autres événements musicaux à Bordeaux, je peux élargir la recherche ! 😊",
+      "similarity_score": 0.9303,
+      "status": "Correct"
+    },
+    {
+      "id": 2,
+      "question": "Y a-t-il une exposition de peinture contemporaine ?",
+      "ground_truth": "Aucune exposition de peinture contemporaine n'est disponible dans le catalogue actuel.",
+      "generated_answer": "D'après le catalogue actuel de Puls-Events, je ne trouve **pas d'exposition de peinture contemporaine** correspondant à votre demande.\n\nVoici les expositions disponibles à Bordeaux pour référence :\n- **\"Céramiques, corps sensibles\"** (exposition de céramiques)\n- **\"Un siècle d'architecture en France\"** (exposition photographique d'architecture)\n- **\"Crotte ! Que fait le microbiote ?\"** (exposition scientifique à Cap Sciences)\n\nSi vous souhaitez explorer d'autres types d'événements culturels ou des expositions dans d'autres villes, n'hésitez pas à me le préciser ! 😊",
+      "similarity_score": 0.8854,
+      "status": "Correct"
+    },
+    {
+      "id": 3,
+      "question": "Quel événement a lieu pour le Festival Vibre ?",
+      "ground_truth": "Le Festival Vibre accueille le Quatuor Prométhée pour un concert de musique classique à Bordeaux.",
+      "generated_answer": "D'après le contexte fourni, voici les informations disponibles concernant le **Festival Vibre !** :\n\n🎭 **Événement identifié** :\n- **Titre** : Masterclass\n- **Description** : Festival Vibre !\n- **Ville** : Bordeaux\n\n🔍 **Analyse** :\nLe catalogue actuel ne mentionne qu'une seule occurrence pour le **Festival Vibre !**, sous la forme d'une **Masterclass** à Bordeaux. Aucune autre activité ou événement lié à ce festival n'est référencé dans les données disponibles.\n\n💡 **Conseil** :\nSi vous souhaitez explorer d'autres activités ou détails sur cette Masterclass (horaires, intervenants, lieu précis, etc.), je vous recommande de consulter directement la page dédiée au **Festival Vibre !** sur la plateforme **Puls-Events** ou de contacter l'organisateur pour plus d'informations.\n\nN'hésitez pas si vous avez d'autres questions ! 😊",
+      "similarity_score": 0.8397,
+      "status": "Correct"
+    }
+  ]
+}

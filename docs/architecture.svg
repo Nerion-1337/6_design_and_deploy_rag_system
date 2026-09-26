@@ -1,0 +1,55 @@
+<svg width="680" height="620" viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Arial, Helvetica, sans-serif">
+<title>Architecture du système RAG Puls-Events</title>
+<desc>Diagramme en couches montrant le flux de données depuis l'API Open Agenda jusqu'aux équipes métier, en passant par l'ingestion, l'indexation vectorielle, la chaîne RAG et l'API REST.</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+
+<rect width="680" height="620" fill="#FFFFFF"/>
+
+<!-- Boîte 0 : source externe -->
+<rect x="180" y="40" width="320" height="44" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="340" y="66" text-anchor="middle" font-size="14" font-weight="500" fill="#2C2C2A">API Open Agenda (source externe)</text>
+
+<line x1="340" y1="84" x2="340" y2="124" stroke="#5F5E5A" stroke-width="1" marker-end="url(#arrow)"/>
+
+<!-- Boîte 1 : ingestion -->
+<rect x="180" y="124" width="320" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="340" y="146" text-anchor="middle" font-size="14" font-weight="500" fill="#26215C">Ingestion — fetch_openagenda.py</text>
+<text x="340" y="166" text-anchor="middle" font-size="12" fill="#3C3489">Pagination, retries, nettoyage</text>
+
+<line x1="340" y1="180" x2="340" y2="220" stroke="#5F5E5A" stroke-width="1" marker-end="url(#arrow)"/>
+<text x="358" y="204" text-anchor="start" font-size="12" fill="#5F5E5A">fichier Parquet</text>
+
+<!-- Boîte 2 : indexation -->
+<rect x="180" y="220" width="320" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="340" y="242" text-anchor="middle" font-size="14" font-weight="500" fill="#26215C">Indexation — build_index.py</text>
+<text x="340" y="262" text-anchor="middle" font-size="12" fill="#3C3489">Chunking + embeddings locaux</text>
+
+<line x1="340" y1="276" x2="340" y2="316" stroke="#5F5E5A" stroke-width="1" marker-end="url(#arrow)"/>
+<text x="358" y="300" text-anchor="start" font-size="12" fill="#5F5E5A">index Faiss</text>
+
+<!-- Boîte 3 : chaîne RAG -->
+<rect x="180" y="316" width="320" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="340" y="338" text-anchor="middle" font-size="14" font-weight="500" fill="#26215C">Chaîne RAG — chain.py</text>
+<text x="340" y="358" text-anchor="middle" font-size="12" fill="#3C3489">Retriever Faiss + LLM</text>
+
+<line x1="340" y1="372" x2="340" y2="412" stroke="#5F5E5A" stroke-width="1" marker-end="url(#arrow)"/>
+<text x="358" y="396" text-anchor="start" font-size="12" fill="#5F5E5A">réponse générée</text>
+
+<!-- Boîte 4 : API REST -->
+<rect x="180" y="412" width="320" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="340" y="434" text-anchor="middle" font-size="14" font-weight="500" fill="#26215C">API REST — main.py</text>
+<text x="340" y="454" text-anchor="middle" font-size="12" fill="#3C3489">/health /metadata /ask /rebuild</text>
+
+<line x1="340" y1="468" x2="340" y2="508" stroke="#5F5E5A" stroke-width="1" marker-end="url(#arrow)"/>
+<text x="358" y="492" text-anchor="start" font-size="12" fill="#5F5E5A">JSON via HTTP</text>
+
+<!-- Boîte 5 : client externe -->
+<rect x="180" y="508" width="320" height="44" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="340" y="534" text-anchor="middle" font-size="14" font-weight="500" fill="#2C2C2A">Équipes produit / marketing (Swagger, curl)</text>
+
+<text x="340" y="585" text-anchor="middle" font-size="12" fill="#5F5E5A">Gris = systèmes externes · Violet = composants Puls-Events (conteneurisés Docker)</text>
+</svg>
